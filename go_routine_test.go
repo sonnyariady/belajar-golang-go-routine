@@ -2,6 +2,7 @@ package belajar_golang_goroutines
 
 import (
 	"fmt"
+	"runtime"
 	"testing"
 	"time"
 )
@@ -25,7 +26,9 @@ func TestBanyakGoRoutine(t *testing.T) {
 	for i := 0; i < 10000; i++ {
 		go DisplayAngka(i)
 	}
+
 	//no goroutine 10rb = 4.61 s
 	//no goroutine 10rb = 0.35 s
 	time.Sleep(5 * time.Second)
+	fmt.Println("Jumlah goroutine: ", runtime.NumGoroutine())
 }
